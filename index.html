@@ -671,7 +671,7 @@
 
   .overlay .sub .ref{
     display: block;
-    font-size: 0.7em;
+    font-size: 0.85em;
     font-weight: 600;
     opacity: 0.85;
     margin-top: 3px;
@@ -1066,11 +1066,25 @@
         const v = values[pick.idx];
         slotEl.textContent = v === null ? '?' : v;
         slotEl.classList.add('filled', pick.el.dataset.color);
+        slotEl.style.cursor = 'pointer';
       } else {
         slotEl.textContent = '+';
+        slotEl.style.cursor = 'default';
       }
     });
   }
+
+  function deselectSlot(i){
+    if (locked) return; // already evaluating a pair — too late to undo
+    const pick = selected[i];
+    if (!pick) return;
+    pick.el.classList.remove('selected');
+    selected.splice(i, 1);
+    renderPickSlots();
+  }
+
+  document.getElementById('pickSlot0').addEventListener('click', () => deselectSlot(0));
+  document.getElementById('pickSlot1').addEventListener('click', () => deselectSlot(1));
 
   function onTileClick(idx, tileEl){
     if (locked) return;
