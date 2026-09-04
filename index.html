@@ -8,8 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg1: #FFF3D6;
-    --bg2: #C7F0E8;
+    --bg1: #FFD6E8;
+    --bg2: #A0E9FF;
     --cream: #FFFDF7;
     --ink: #4A3F55;
     --pink: #FFB3C6;
@@ -28,7 +28,7 @@
     margin:0;
     padding:0;
     height:100%;
-    background: linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 100%);
+    background: linear-gradient(160deg, #FFD6E8 0%, #FFE9A8 35%, #A0E9FF 70%, #C6B8FF 100%);
     font-family: 'Inter', sans-serif;
     color: var(--ink);
     overflow-x:hidden;
@@ -45,18 +45,18 @@
     max-width: 560px;
     width:100%;
     margin: 0 auto;
-    padding: 26px 16px 18px;
+    padding: 10px 12px 8px;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-start;
   }
 
   .board{
     width:100%;
     display:grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 7px;
   }
 
   .tile{
@@ -125,7 +125,7 @@
   .tile .num{
     font-family:'Baloo 2', sans-serif;
     font-weight: 800;
-    font-size: clamp(72px, 27vw, 98px);
+    font-size: clamp(38px, 15vw, 52px);
     color: #1A1A1A;
     display:inline-block;
     text-shadow: 1px 1px 0 rgba(255,255,255,0.6), -1px -1px 1px rgba(0,0,0,0.4);
@@ -202,9 +202,9 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap: 10px;
-    padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
-    background: rgba(255,255,255,0.55);
+    gap: 8px;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,0.6);
     border-top: 2px solid rgba(255,255,255,0.85);
     backdrop-filter: blur(6px);
   }
