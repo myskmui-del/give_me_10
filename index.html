@@ -198,6 +198,7 @@
     max-width: 560px;
     margin: 0 auto;
     display:flex;
+    flex-direction: column;
     align-items:center;
     gap: 10px;
     padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
@@ -206,19 +207,19 @@
     backdrop-filter: blur(6px);
   }
 
-  .left-col{
-    display:flex;
-    flex-direction:column;
-    gap: 6px;
-    flex-shrink: 0;
-  }
-
   .equation-row{
-    flex: 1;
     display:flex;
     align-items:center;
     justify-content:center;
     gap: 10px;
+  }
+
+  .controls-row{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 16px;
   }
 
   .level-chip{
@@ -693,10 +694,6 @@
 </div>
 
 <div class="bottom-bar">
-  <div class="left-col">
-    <div class="level-chip">Level <span id="levelNum">1</span></div>
-    <button class="hint-btn" id="hintBtn">💡 Hint</button>
-  </div>
   <div class="equation-row">
     <div class="pick-slot" id="pickSlot0">+</div>
     <span class="equation-symbol">+</span>
@@ -705,6 +702,10 @@
     <div class="target-chip">
       <div class="value"><span class="value-inner" id="targetValue">10</span></div>
     </div>
+  </div>
+  <div class="controls-row">
+    <div class="level-chip">Level <span id="levelNum">1</span></div>
+    <button class="hint-btn" id="hintBtn">💡 Hint</button>
   </div>
 </div>
 
