@@ -199,51 +199,61 @@
     margin: 0 auto;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap: 6px;
-    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    gap: 10px;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
     background: rgba(255,255,255,0.6);
     border-top: 2px solid rgba(255,255,255,0.85);
     backdrop-filter: blur(6px);
   }
 
+  .left-col{
+    display:flex;
+    flex-direction:column;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .equation-row{
+    flex: 1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 10px;
+  }
+
   .level-chip{
     font-family:'Baloo 2', sans-serif;
-    font-weight:800;
-    font-size: 13px;
+    font-weight:900;
+    font-size: 17px;
     color: #FFFFFF;
-    background: linear-gradient(135deg, #FFD166, #FF8FAE);
+    background: linear-gradient(135deg, #FF6B35, #FF2D78);
     border: 2px solid rgba(255,255,255,0.9);
-    padding: 6px 10px;
+    padding: 9px 14px;
     border-radius: 999px;
     white-space:nowrap;
     flex-shrink: 0;
-    box-shadow: 0 3px 7px rgba(255,143,174,0.45), 0 0 0 2px rgba(255,209,102,0.3);
+    text-shadow: 0 2px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(255,45,120,0.5), 0 0 0 3px rgba(255,107,53,0.35);
   }
 
   .level-chip span{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    min-width: 20px;
-    height: 20px;
-    padding: 0 4px;
-    margin-left: 3px;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 6px;
+    margin-left: 5px;
     border-radius: 999px;
-    background: #FF4D7D;
+    background: #FF6A00;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 22px;
     font-weight: 900;
     text-shadow: none;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.35);
   }
 
-  .center-group{
-    display:flex;
-    align-items:center;
-    gap: 5px;
-    flex-shrink: 0;
-  }
+
 
   .target-chip{
     display:flex;
@@ -256,22 +266,22 @@
   .equation-symbol{
     font-family:'Baloo 2', sans-serif;
     font-weight: 800;
-    font-size: 15px;
+    font-size: 38px;
     color: var(--ink);
   }
 
   .pick-slot{
-    width: 30px;
-    height: 30px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    border: 2px dashed rgba(74,63,85,0.35);
+    border: 3px dashed rgba(74,63,85,0.35);
     background: rgba(255,255,255,0.5);
     font-family:'Baloo 2', sans-serif;
     font-weight: 800;
-    font-size: 13px;
+    font-size: 32px;
     color: rgba(74,63,85,0.4);
     transition: background .15s ease, border-color .15s ease, transform .15s ease;
   }
@@ -299,25 +309,25 @@
   .pick-slot.filled.c5{ background: radial-gradient(circle at 32% 28%, #C98CE8 0%, #9B4FC7 55%, #601F87 100%); }
 
   .target-chip .value{
-    width: 46px;
-    height: 46px;
+    width: 98px;
+    height: 98px;
     border-radius: 50%;
     display:flex;
     align-items:center;
     justify-content:center;
     background: radial-gradient(circle at 35% 30%, #FF6B6B 0%, #E5383B 55%, #B22222 100%);
-    border: 3px solid #14151A;
-    box-shadow: 0 3px 0 rgba(0,0,0,0.18), 0 4px 10px rgba(0,0,0,0.15);
+    border: 5px solid #14151A;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.18), 0 8px 16px rgba(0,0,0,0.15);
     flex-shrink: 0;
   }
 
   .value-inner{
     font-family:'Baloo 2', sans-serif;
     font-weight: 800;
-    font-size: 17px;
+    font-size: 38px;
     color: #14151A;
-    width: 26px;
-    height: 26px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: #FFFFFF;
     display:flex;
@@ -329,17 +339,21 @@
   .hint-btn{
     font-family:'Baloo 2', sans-serif;
     font-weight:900;
-    font-size: 12px;
+    font-size: 16px;
     background: linear-gradient(135deg, #FFD166, #FF8FAE);
     border: none;
     color: var(--ink);
-    padding: 8px 12px;
+    padding: 11px 18px;
     border-radius: 999px;
     cursor:pointer;
     box-shadow: 0 3px 0 rgba(0,0,0,0.1);
     transition: transform .12s ease;
     white-space:nowrap;
     flex-shrink: 0;
+  }
+
+  .replay-btn{
+    background: linear-gradient(135deg, #9BE8DC, #7ED9A8);
   }
   .hint-btn:hover{ transform: translateY(-1px) scale(1.03); }
   .hint-btn:active{ transform: translateY(1px); }
@@ -679,8 +693,11 @@
 </div>
 
 <div class="bottom-bar">
-  <div class="level-chip">Level <span id="levelNum">1</span></div>
-  <div class="center-group">
+  <div class="left-col">
+    <div class="level-chip">Level <span id="levelNum">1</span></div>
+    <button class="hint-btn" id="hintBtn">💡 Hint</button>
+  </div>
+  <div class="equation-row">
     <div class="pick-slot" id="pickSlot0">+</div>
     <span class="equation-symbol">+</span>
     <div class="pick-slot" id="pickSlot1">+</div>
@@ -689,7 +706,6 @@
       <div class="value"><span class="value-inner" id="targetValue">10</span></div>
     </div>
   </div>
-  <button class="hint-btn" id="hintBtn">💡 Hint</button>
 </div>
 
 <div class="overlay" id="overlay">
